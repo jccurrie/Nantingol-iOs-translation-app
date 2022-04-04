@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE03BE5327F68A0800D21ADC /* Favorites.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BE03BE5127F68A0800D21ADC /* Favorites.xcdatamodeld */; };
 		BEBBB50B27EB9BB100EEBEBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBBB50A27EB9BB100EEBEBC /* AppDelegate.swift */; };
 		BEBBB50D27EB9BB100EEBEBC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBBB50C27EB9BB100EEBEBC /* SceneDelegate.swift */; };
 		BEBBB50F27EB9BB100EEBEBC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBBB50E27EB9BB100EEBEBC /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BE03BE5227F68A0800D21ADC /* Favorites.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Favorites.xcdatamodel; sourceTree = "<group>"; };
 		BEBBB50727EB9BB100EEBEBC /* Nantingol.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nantingol.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEBBB50A27EB9BB100EEBEBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEBBB50C27EB9BB100EEBEBC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				BEBBB51327EB9BB200EEBEBC /* Assets.xcassets */,
 				BEBBB51527EB9BB200EEBEBC /* LaunchScreen.storyboard */,
 				BEBBB51827EB9BB200EEBEBC /* Info.plist */,
+				BE03BE5127F68A0800D21ADC /* Favorites.xcdatamodeld */,
 			);
 			path = Nantingol;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEBBB50F27EB9BB100EEBEBC /* ViewController.swift in Sources */,
+				BE03BE5327F68A0800D21ADC /* Favorites.xcdatamodeld in Sources */,
 				BEBBB50B27EB9BB100EEBEBC /* AppDelegate.swift in Sources */,
 				BEBBB50D27EB9BB100EEBEBC /* SceneDelegate.swift in Sources */,
 			);
@@ -360,6 +364,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BE03BE5127F68A0800D21ADC /* Favorites.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BE03BE5227F68A0800D21ADC /* Favorites.xcdatamodel */,
+			);
+			currentVersion = BE03BE5227F68A0800D21ADC /* Favorites.xcdatamodel */;
+			path = Favorites.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BEBBB4FF27EB9BB100EEBEBC /* Project object */;
 }

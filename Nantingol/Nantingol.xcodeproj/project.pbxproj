@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8826A59B27FBC52A0038DDA2 /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826A59A27FBC52A0038DDA2 /* TranslationViewController.swift */; };
 		8826A59D27FBC5340038DDA2 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826A59C27FBC5340038DDA2 /* FavoritesViewController.swift */; };
+		8826A5A027FCA4D30038DDA2 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826A59F27FCA4D30038DDA2 /* FavoriteTableViewCell.swift */; };
 		BE03BE5327F68A0800D21ADC /* Favorites.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BE03BE5127F68A0800D21ADC /* Favorites.xcdatamodeld */; };
 		BEBBB50B27EB9BB100EEBEBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBBB50A27EB9BB100EEBEBC /* AppDelegate.swift */; };
 		BEBBB50D27EB9BB100EEBEBC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBBB50C27EB9BB100EEBEBC /* SceneDelegate.swift */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		8826A59A27FBC52A0038DDA2 /* TranslationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TranslationViewController.swift; path = ../../../../../Desktop/xCode/Controllers/TranslationViewController.swift; sourceTree = "<group>"; };
 		8826A59C27FBC5340038DDA2 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavoritesViewController.swift; path = ../../../../../Desktop/xCode/Controllers/FavoritesViewController.swift; sourceTree = "<group>"; };
+		8826A59F27FCA4D30038DDA2 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		BE03BE5227F68A0800D21ADC /* Favorites.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Favorites.xcdatamodel; sourceTree = "<group>"; };
 		BEBBB50727EB9BB100EEBEBC /* Nantingol.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nantingol.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEBBB50A27EB9BB100EEBEBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +55,22 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		8826A59E27FCA4A90038DDA2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8826A59F27FCA4D30038DDA2 /* FavoriteTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8897F8CB27FE2148007DD868 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BE03BE5127F68A0800D21ADC /* Favorites.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		BEBBB4FE27EB9BB100EEBEBC = {
 			isa = PBXGroup;
 			children = (
@@ -74,12 +92,13 @@
 			children = (
 				BEBBB50A27EB9BB100EEBEBC /* AppDelegate.swift */,
 				BEBBB50C27EB9BB100EEBEBC /* SceneDelegate.swift */,
+				8897F8CB27FE2148007DD868 /* Models */,
+				8826A59E27FCA4A90038DDA2 /* Views */,
 				8826A59927FBC5010038DDA2 /* ViewControllers */,
 				BEBBB51027EB9BB100EEBEBC /* Main.storyboard */,
 				BEBBB51327EB9BB200EEBEBC /* Assets.xcassets */,
 				BEBBB51527EB9BB200EEBEBC /* LaunchScreen.storyboard */,
 				BEBBB51827EB9BB200EEBEBC /* Info.plist */,
-				BE03BE5127F68A0800D21ADC /* Favorites.xcdatamodeld */,
 			);
 			path = Nantingol;
 			sourceTree = "<group>";
@@ -160,6 +179,7 @@
 				BEBBB50B27EB9BB100EEBEBC /* AppDelegate.swift in Sources */,
 				BEBBB50D27EB9BB100EEBEBC /* SceneDelegate.swift in Sources */,
 				8826A59D27FBC5340038DDA2 /* FavoritesViewController.swift in Sources */,
+				8826A5A027FCA4D30038DDA2 /* FavoriteTableViewCell.swift in Sources */,
 				8826A59B27FBC52A0038DDA2 /* TranslationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

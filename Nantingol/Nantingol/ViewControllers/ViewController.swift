@@ -34,7 +34,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @IBOutlet weak var translateFromPicker: UIPickerView!
 
-    @IBOutlet weak var myStuff: UILabel!
+    @IBOutlet weak var Nantingol: UILabel!
     
     @IBOutlet weak var myField: UITextField!
     
@@ -73,7 +73,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
         gradientLayer.colors = [UIColor.systemMint.cgColor, UIColor.systemPurple.cgColor]
-        view.layer.insertSublayer(gradientLayer, below: myStuff.layer)
+        view.layer.insertSublayer(gradientLayer, below: Nantingol.layer)
     }
 }
 

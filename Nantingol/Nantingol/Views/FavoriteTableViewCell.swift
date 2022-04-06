@@ -11,4 +11,6 @@ import UIKit
 class FavoriteTableViewCell: UITableViewCell {
 
 
+    
+    
 }

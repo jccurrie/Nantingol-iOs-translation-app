@@ -58,6 +58,8 @@
 		8826A59E27FCA4A90038DDA2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BEBBB51027EB9BB100EEBEBC /* Main.storyboard */,
+				BEBBB51527EB9BB200EEBEBC /* LaunchScreen.storyboard */,
 				8826A59F27FCA4D30038DDA2 /* FavoriteTableViewCell.swift */,
 			);
 			path = Views;
@@ -90,14 +92,12 @@
 		BEBBB50927EB9BB100EEBEBC /* Nantingol */ = {
 			isa = PBXGroup;
 			children = (
-				BEBBB50A27EB9BB100EEBEBC /* AppDelegate.swift */,
-				BEBBB50C27EB9BB100EEBEBC /* SceneDelegate.swift */,
 				8897F8CB27FE2148007DD868 /* Models */,
 				8826A59E27FCA4A90038DDA2 /* Views */,
 				8826A59927FBC5010038DDA2 /* ViewControllers */,
-				BEBBB51027EB9BB100EEBEBC /* Main.storyboard */,
+				BEBBB50A27EB9BB100EEBEBC /* AppDelegate.swift */,
+				BEBBB50C27EB9BB100EEBEBC /* SceneDelegate.swift */,
 				BEBBB51327EB9BB200EEBEBC /* Assets.xcassets */,
-				BEBBB51527EB9BB200EEBEBC /* LaunchScreen.storyboard */,
 				BEBBB51827EB9BB200EEBEBC /* Info.plist */,
 			);
 			path = Nantingol;

@@ -31,12 +31,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
         // Gradient layers/cosmetics for the view and textfields backgrounds
         createViewGradientLayer()
-        myText.layer.masksToBounds = true
-        myText.layer.cornerRadius = 20
-        translateToPicker.layer.masksToBounds = true
-        translateToPicker.layer.cornerRadius = 20
-        translateFromPicker.layer.masksToBounds = true
-        translateFromPicker.layer.cornerRadius = 20
+
         
     }
     
@@ -68,6 +63,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func createViewGradientLayer()
     {
+        // make everything look nice
+        myText.layer.masksToBounds = true
+        myText.layer.cornerRadius = 20
+        translateToPicker.layer.masksToBounds = true
+        translateToPicker.layer.cornerRadius = 20
+        translateFromPicker.layer.masksToBounds = true
+        translateFromPicker.layer.cornerRadius = 20
+        
         // creates a sublayer underneath everything on the main view for background gradient
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds

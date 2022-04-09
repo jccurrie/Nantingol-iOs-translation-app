@@ -31,8 +31,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
         // Gradient layers/cosmetics for the view and textfields backgrounds
         createViewGradientLayer()
-
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -63,7 +61,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func createViewGradientLayer()
     {
-        // make everything look nice
+        // make everything look nice(rounds corners)
         myText.layer.masksToBounds = true
         myText.layer.cornerRadius = 20
         translateToPicker.layer.masksToBounds = true

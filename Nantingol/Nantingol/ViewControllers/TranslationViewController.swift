@@ -26,6 +26,8 @@ class TranslationViewController: UIViewController, UITextFieldDelegate {
         // Gradient layers/cosmetics for the view and textfield backgrounds
         createViewGradientLayer()
         originalText.text = original
+        
+        translationCall(original: original)
     }
     
     
@@ -33,13 +35,11 @@ class TranslationViewController: UIViewController, UITextFieldDelegate {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let newTranslation = NSEntityDescription.insertNewObject(forEntityName: "FavoriteEntity", into: context) as! FavoriteEntity
         newTranslation.originalText = "originalText.text"
-        
-        //TODO: run original text through API and return it here for saving (at the point we're doing this is may be ran else where, and this can just be set as translatedText.text though
         newTranslation.translatedText = "Blank text for now!"
+        
     }
     
-    func createViewGradientLayer()
-    {
+    func createViewGradientLayer() {
         originalText.layer.masksToBounds = true
         originalText.layer.cornerRadius = 20
         translatedText.layer.masksToBounds = true
@@ -51,4 +51,20 @@ class TranslationViewController: UIViewController, UITextFieldDelegate {
         gradientLayer.colors = [UIColor.systemMint.cgColor, UIColor.systemPurple.cgColor]
         view.layer.insertSublayer(gradientLayer, below: Nantingol.layer)
     }
+    
+    //TODO: Make api call
+    //Takes in the original text as String?, sends it through the API and returns the translation.
+    //Set translated = the API translation returned String
+    func translationCall(original: String?) {
+        let translated: String?
+        
+        //what ever code translates original to translated
+        //translationcall(original)-> translated
+        
+        translated = original //change original to translated text
+        translatedText.text = translated
+        
+        
+    }
+    
 }

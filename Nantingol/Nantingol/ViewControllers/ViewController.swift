@@ -19,7 +19,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //For gesture-shake function
+        self.becomeFirstResponder()
+        
         // Connect language array to the "from translation" / "to translation" option pickers
         self.translateFromPicker.delegate = self
         self.translateFromPicker.dataSource = self
@@ -33,6 +36,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         createViewGradientLayer()
     }
     
+    //On motion end gesture clears input text field to default message.
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?){
+        if motion == .motionShake {
+            myText.text = "Insert text for translation, shake your device to clear this text:"
+        }
+    }
+    
+    //Segue on translate click, transfers myText field data to the favoritesViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "translateText") {
             let svc = segue.destination as! TranslationViewController

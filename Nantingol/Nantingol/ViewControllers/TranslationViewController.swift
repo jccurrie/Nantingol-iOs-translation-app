@@ -30,12 +30,15 @@ class TranslationViewController: UIViewController, UITextFieldDelegate {
         translationCall(original: original)
     }
     
-    
+    //TODO: save original and translation to the db from here
     @IBAction func favoriteTranslation(_ sender: Any) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let newTranslation = NSEntityDescription.insertNewObject(forEntityName: "FavoriteEntity", into: context) as! FavoriteEntity
+        
         newTranslation.originalText = "originalText.text"
         newTranslation.translatedText = "Blank text for now!"
+        
+        
         
     }
     

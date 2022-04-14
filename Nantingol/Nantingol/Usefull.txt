@@ -1,0 +1,3 @@
+translate = https://translation.googleapis.com/language/translate/v2?key=AIzaSyDe9TnAY7b8zKxcqHvlr6L14I5xm7jYhG4&q=hello&target=es&format=text&source=en
+supportedLanguages = https://translation.googleapis.com/language/translate/v2?key=AIzaSyDe9TnAY7b8zKxcqHvlr6L14I5xm7jYhG4&q=hello&target=es&format=text&source=en
+https://translation.googleapis.com/language/translate/v2/languages?key=AIzaSyDe9TnAY7b8zKxcqHvlr6L14I5xm7jYhG4&target=en

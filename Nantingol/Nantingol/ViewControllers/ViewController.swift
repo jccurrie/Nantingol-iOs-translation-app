@@ -7,6 +7,7 @@
 import Foundation
 import CoreData
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -16,6 +17,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var Nantingol: UILabel!
     @IBOutlet weak var myText: UITextView!
     @IBOutlet weak var translateButton: UIButton!
+    let TRANSLATION_API = "AIzaSyDe9TnAY7b8zKxcqHvlr6L14I5xm7jYhG4"
+    var languages: NSDictionary = [:]
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +36,44 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         self.translateToPicker.dataSource = self
 
         // Language array data for the from translation / to translation option pickers
-        pickerData = ["Language 1", "Language 2", "Language 3", "Language 4",]
-
+        pickerData = ["bob"]
         // Gradient layers/cosmetics for the view and textfields backgrounds
         createViewGradientLayer()
+        fetchSupportedLanguages()
+    }
+    
+    func fetchSupportedLanguages(){
+        let encoder = URLEncodedFormParameterEncoder(encoder: URLEncodedFormEncoder(arrayEncoding: .noBrackets))
+        
+        let parameters = [
+            "target": "en",
+            "key": TRANSLATION_API,
+        ]
+        
+        AF.request("https://translation.googleapis.com/language/translate/v2/languages", parameters: parameters)
+            .responseJSON { response in
+                switch response.result {
+                case .failure(let error):
+                    print(error)
+                case .success:
+                    self.languages =  response.value as! NSDictionary
+//                    for (key, value) in self.languages {
+//                        print("Value: \(value) for Key: \(key)")
+//                    }
+                    
+                    let temp = self.languages.value(forKey: "data")
+                    for item in temp? {
+                        print(item)
+                    }
+                    print(temp)
+                    print(self.languages.value(forKey: "data") as Any)
+                }
+            }
+//            .responseDecodable(of: SupportedLanguages.self){ response in
+//                guard let tempArray = response.value else { return }
+//                print(response.value)
+//        }
+        
     }
     
     //On motion end gesture clears input text field to default message.
@@ -57,12 +97,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-            return pickerData.count
+            return languages.count
     }
     
     // The data to return for the row and component (column) that's being passed in
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-            return "\(pickerData[row])"
+            return "\(languages[row])"
     }
     
     override func didReceiveMemoryWarning() {

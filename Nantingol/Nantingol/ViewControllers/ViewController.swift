@@ -7,7 +7,7 @@
 import Foundation
 import CoreData
 import UIKit
-import ROGoogleTranslate
+
 
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
@@ -40,45 +40,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         createViewGradientLayer()
     }
     
-    func fetchSupportedLanguages(){
-
-        
-    }
-    
-    func translateThisBisch() {
-        var translation = self.myText.text
-        print(self.language)
-        var languageCode: String = "en"
-        switch (self.language) {
-            case "Afrikaans":
-                languageCode = "af"
-            case "Czech":
-                languageCode = "cs"
-            case "German":
-                languageCode = "de"
-            case "Bulgarian":
-                languageCode = "bg"
-            case "Spanish":
-                languageCode = "es"
-        default:
-            languageCode = "en"
-        }
-        
-        let params = ROGoogleTranslateParams(source: "en",
-                                             target: languageCode,
-                                             text:   myText.text)
-        let translator = ROGoogleTranslate()
-        translator.translate(params: params) { (result) in
-            print("Translation: \(result)")
-            translation = "\(result)"
-        }
-        print(translation as Any)
-        self.myText.text = translation
-        self.myText.reloadInputViews()
-        
-        
-
-    }
     
     //On motion end gesture clears input text field to default message.
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?){
@@ -91,7 +52,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "translateText") {
             let svc = segue.destination as! TranslationViewController
-             svc.original = myText.text
+            svc.original = myText.text
+            svc.languageChoice = self.language
         }
     }
     
@@ -111,7 +73,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.language = pickerData[row] as String
-        translateThisBisch()
     }
     
     override func didReceiveMemoryWarning() {
@@ -121,9 +82,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func createViewGradientLayer()
     {
-    
-        
-        
         // make everything look nice(rounds corners)
         myText.layer.masksToBounds = true
         myText.layer.cornerRadius = 20

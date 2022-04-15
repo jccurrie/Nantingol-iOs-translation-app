@@ -11,14 +11,14 @@ import Alamofire
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    var pickerData: [String] = [String]()
+    var pickerData: [Displayable]
     @IBOutlet weak var translateToPicker: UIPickerView!
     @IBOutlet weak var translateFromPicker: UIPickerView!
     @IBOutlet weak var Nantingol: UILabel!
     @IBOutlet weak var myText: UITextView!
     @IBOutlet weak var translateButton: UIButton!
     let TRANSLATION_API = "AIzaSyDe9TnAY7b8zKxcqHvlr6L14I5xm7jYhG4"
-    var languages: NSDictionary = [:]
+    
     
     
     
@@ -36,44 +36,34 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         self.translateToPicker.dataSource = self
 
         // Language array data for the from translation / to translation option pickers
-        pickerData = ["bob"]
         // Gradient layers/cosmetics for the view and textfields backgrounds
         createViewGradientLayer()
-        fetchSupportedLanguages()
+        //fetchSupportedLanguages()
+        translateThisBisch()
     }
     
     func fetchSupportedLanguages(){
-        let encoder = URLEncodedFormParameterEncoder(encoder: URLEncodedFormEncoder(arrayEncoding: .noBrackets))
+        //let encoder = URLEncodedFormParameterEncoder(encoder: URLEncodedFormEncoder(arrayEncoding: .noBrackets))
+        let _url = "https://translation.googleapis.com/language/translate/v2/languages?key=AIzaSyDe9TnAY7b8zKxcqHvlr6L14I5xm7jYhG4&target=en"
+            
         
-        let parameters = [
-            "target": "en",
-            "key": TRANSLATION_API,
-        ]
+        AF.request(_url,method: .post).validate()
+            .responseDecodable(of: SupportedLanguages.self){ response in
+                guard let supportedLanguages = response.value else { return }
+                self.pickerData = supportedLanguages.languages
+                self.translateToPicker.reloadAllComponents()
+
+        }
         
-        AF.request("https://translation.googleapis.com/language/translate/v2/languages", parameters: parameters)
-            .responseJSON { response in
-                switch response.result {
-                case .failure(let error):
-                    print(error)
-                case .success:
-                    self.languages =  response.value as! NSDictionary
-//                    for (key, value) in self.languages {
-//                        print("Value: \(value) for Key: \(key)")
-//                    }
-                    
-                    let temp = self.languages.value(forKey: "data")
-                    for item in temp? {
-                        print(item)
-                    }
-                    print(temp)
-                    print(self.languages.value(forKey: "data") as Any)
-                }
+    }
+    
+    func translateThisBisch(){
+        AF.request("https://translation.googleapis.com/language/translate/v2?key=AIzaSyDe9TnAY7b8zKxcqHvlr6L14I5xm7jYhG4&q=hello&target=es&format=text&source=en")
+            .response() { response in
+
+                
+                
             }
-//            .responseDecodable(of: SupportedLanguages.self){ response in
-//                guard let tempArray = response.value else { return }
-//                print(response.value)
-//        }
-        
     }
     
     //On motion end gesture clears input text field to default message.
@@ -97,12 +87,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-            return languages.count
+        return pickerData.count
     }
     
     // The data to return for the row and component (column) that's being passed in
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-            return "\(languages[row])"
+            return "\(pickerData[row])"
     }
     
     override func didReceiveMemoryWarning() {

@@ -16,6 +16,9 @@
 		BE819B1328078AA300CA3E7C /* Usefull.txt in Resources */ = {isa = PBXBuildFile; fileRef = BE819B1228078AA300CA3E7C /* Usefull.txt */; };
 		BE819B162807AECA00CA3E7C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BE819B152807AECA00CA3E7C /* Alamofire */; };
 		BE819B182807B28000CA3E7C /* SupportedLanguages.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE819B172807B28000CA3E7C /* SupportedLanguages.swift */; };
+		BE819B202809C22300CA3E7C /* Translated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE819B1F2809C22300CA3E7C /* Translated.swift */; };
+		BE819B262809D32F00CA3E7C /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE819B252809D32F00CA3E7C /* Language.swift */; };
+		BE819B282809D6FF00CA3E7C /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE819B272809D6FF00CA3E7C /* Languages.swift */; };
 		BEBBB50B27EB9BB100EEBEBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBBB50A27EB9BB100EEBEBC /* AppDelegate.swift */; };
 		BEBBB50D27EB9BB100EEBEBC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBBB50C27EB9BB100EEBEBC /* SceneDelegate.swift */; };
 		BEBBB50F27EB9BB100EEBEBC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBBB50E27EB9BB100EEBEBC /* ViewController.swift */; };
@@ -34,6 +37,9 @@
 		BE03BE5227F68A0800D21ADC /* Favorites.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Favorites.xcdatamodel; sourceTree = "<group>"; };
 		BE819B1228078AA300CA3E7C /* Usefull.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Usefull.txt; sourceTree = "<group>"; };
 		BE819B172807B28000CA3E7C /* SupportedLanguages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedLanguages.swift; sourceTree = "<group>"; };
+		BE819B1F2809C22300CA3E7C /* Translated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translated.swift; sourceTree = "<group>"; };
+		BE819B252809D32F00CA3E7C /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		BE819B272809D6FF00CA3E7C /* Languages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
 		BEBBB50727EB9BB100EEBEBC /* Nantingol.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nantingol.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEBBB50A27EB9BB100EEBEBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEBBB50C27EB9BB100EEBEBC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,9 +89,19 @@
 				BE03BE5127F68A0800D21ADC /* Favorites.xcdatamodeld */,
 				88A8081627FE2C1800BBFCF3 /* FavoriteEntity+CoreDataClass.swift */,
 				88A8081827FE2C2A00BBFCF3 /* FavoriteEntity+CoreDataProperties.swift */,
-				BE819B172807B28000CA3E7C /* SupportedLanguages.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		BE819B222809CD3A00CA3E7C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				BE819B172807B28000CA3E7C /* SupportedLanguages.swift */,
+				BE819B1F2809C22300CA3E7C /* Translated.swift */,
+				BE819B252809D32F00CA3E7C /* Language.swift */,
+				BE819B272809D6FF00CA3E7C /* Languages.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		BEBBB4FE27EB9BB100EEBEBC = {
@@ -107,6 +123,7 @@
 		BEBBB50927EB9BB100EEBEBC /* Nantingol */ = {
 			isa = PBXGroup;
 			children = (
+				BE819B222809CD3A00CA3E7C /* Networking */,
 				BED6DD7228066B9D00C75D32 /* GoogleService-Info.plist */,
 				8897F8CB27FE2148007DD868 /* Models */,
 				8826A59E27FCA4A90038DDA2 /* Views */,
@@ -200,12 +217,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEBBB50F27EB9BB100EEBEBC /* ViewController.swift in Sources */,
+				BE819B202809C22300CA3E7C /* Translated.swift in Sources */,
 				88A3D25428020D880076BA61 /* TranslationViewController.swift in Sources */,
+				BE819B282809D6FF00CA3E7C /* Languages.swift in Sources */,
 				BE03BE5327F68A0800D21ADC /* Favorites.xcdatamodeld in Sources */,
 				BEBBB50B27EB9BB100EEBEBC /* AppDelegate.swift in Sources */,
 				BE819B182807B28000CA3E7C /* SupportedLanguages.swift in Sources */,
 				BEBBB50D27EB9BB100EEBEBC /* SceneDelegate.swift in Sources */,
 				88A8081927FE2C2A00BBFCF3 /* FavoriteEntity+CoreDataProperties.swift in Sources */,
+				BE819B262809D32F00CA3E7C /* Language.swift in Sources */,
 				8826A5A027FCA4D30038DDA2 /* FavoriteTableViewCell.swift in Sources */,
 				88A8081727FE2C1800BBFCF3 /* FavoriteEntity+CoreDataClass.swift in Sources */,
 				88A3D25328020D880076BA61 /* FavoritesViewController.swift in Sources */,

@@ -11,10 +11,10 @@ import SwiftUI
 
 
 struct SupportedLanguages: Decodable {
-    let data: [String: Languages]
+    let data: [Languages]
     
     enum SupportedLanguage: String, CodingKey {
-        case data = "languages"
+        case data
     }
 }
 

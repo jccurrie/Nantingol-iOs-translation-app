@@ -7,8 +7,5 @@ target 'Nantingol' do
 
   # Pods for Nantingol
   
-  pod 'Firebase/Core'
-  pod 'Firebase/Data'
-  pod 'GoogleMLKit/Translate', '1.6.0'
-  pod 'GoogleMLKit/LanguageID', '2.6.0'
+  pod "ROGoogleTranslate"
 end

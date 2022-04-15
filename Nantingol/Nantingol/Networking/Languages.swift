@@ -6,7 +6,7 @@
 //
 
 struct Languages: Decodable {
-    let languages: [Language]
+    let languages: [[String: Language]]
     
     enum CodingKeys: String, CodingKey{
         case languages = "languages"

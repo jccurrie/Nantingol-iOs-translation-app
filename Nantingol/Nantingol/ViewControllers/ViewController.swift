@@ -7,19 +7,19 @@
 import Foundation
 import CoreData
 import UIKit
-import Alamofire
+import ROGoogleTranslate
+
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    var pickerData: [Displayable]
+    var pickerData: [String] = ["Afrikaans", "Bulgarian", "Czech", "German", "Spanish"]
     @IBOutlet weak var translateToPicker: UIPickerView!
     @IBOutlet weak var translateFromPicker: UIPickerView!
     @IBOutlet weak var Nantingol: UILabel!
     @IBOutlet weak var myText: UITextView!
     @IBOutlet weak var translateButton: UIButton!
-    let TRANSLATION_API = "AIzaSyDe9TnAY7b8zKxcqHvlr6L14I5xm7jYhG4"
     
-    
+    var language: String = ""
     
     
     
@@ -38,32 +38,46 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         // Language array data for the from translation / to translation option pickers
         // Gradient layers/cosmetics for the view and textfields backgrounds
         createViewGradientLayer()
-        //fetchSupportedLanguages()
-        translateThisBisch()
     }
     
     func fetchSupportedLanguages(){
-        //let encoder = URLEncodedFormParameterEncoder(encoder: URLEncodedFormEncoder(arrayEncoding: .noBrackets))
-        let _url = "https://translation.googleapis.com/language/translate/v2/languages?key=AIzaSyDe9TnAY7b8zKxcqHvlr6L14I5xm7jYhG4&target=en"
-            
-        
-        AF.request(_url,method: .post).validate()
-            .responseDecodable(of: SupportedLanguages.self){ response in
-                guard let supportedLanguages = response.value else { return }
-                self.pickerData = supportedLanguages.languages
-                self.translateToPicker.reloadAllComponents()
 
-        }
         
     }
     
-    func translateThisBisch(){
-        AF.request("https://translation.googleapis.com/language/translate/v2?key=AIzaSyDe9TnAY7b8zKxcqHvlr6L14I5xm7jYhG4&q=hello&target=es&format=text&source=en")
-            .response() { response in
+    func translateThisBisch() {
+        var translation = self.myText.text
+        print(self.language)
+        var languageCode: String = "en"
+        switch (self.language) {
+            case "Afrikaans":
+                languageCode = "af"
+            case "Czech":
+                languageCode = "cs"
+            case "German":
+                languageCode = "de"
+            case "Bulgarian":
+                languageCode = "bg"
+            case "Spanish":
+                languageCode = "es"
+        default:
+            languageCode = "en"
+        }
+        
+        let params = ROGoogleTranslateParams(source: "en",
+                                             target: languageCode,
+                                             text:   myText.text)
+        let translator = ROGoogleTranslate()
+        translator.translate(params: params) { (result) in
+            print("Translation: \(result)")
+            translation = "\(result)"
+        }
+        print(translation as Any)
+        self.myText.text = translation
+        self.myText.reloadInputViews()
+        
+        
 
-                
-                
-            }
     }
     
     //On motion end gesture clears input text field to default message.
@@ -92,7 +106,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     // The data to return for the row and component (column) that's being passed in
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-            return "\(pickerData[row])"
+        return pickerData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.language = pickerData[row] as String
+        translateThisBisch()
     }
     
     override func didReceiveMemoryWarning() {
@@ -102,6 +121,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func createViewGradientLayer()
     {
+    
+        
+        
         // make everything look nice(rounds corners)
         myText.layer.masksToBounds = true
         myText.layer.cornerRadius = 20

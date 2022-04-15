@@ -26,14 +26,18 @@
 		BEBBB51427EB9BB200EEBEBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEBBB51327EB9BB200EEBEBC /* Assets.xcassets */; };
 		BEBBB51727EB9BB200EEBEBC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEBBB51527EB9BB200EEBEBC /* LaunchScreen.storyboard */; };
 		BED6DD7328066B9D00C75D32 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BED6DD7228066B9D00C75D32 /* GoogleService-Info.plist */; };
+		DA6D18E76CBAA75764AB3B35 /* Pods_Nantingol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3700A57FD3958703DFA11FB /* Pods_Nantingol.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1CAD91AE7919639934D1A4D8 /* Pods-Nantingol.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nantingol.release.xcconfig"; path = "Target Support Files/Pods-Nantingol/Pods-Nantingol.release.xcconfig"; sourceTree = "<group>"; };
 		8826A59F27FCA4D30038DDA2 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		88A3D25128020D880076BA61 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		88A3D25228020D880076BA61 /* TranslationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
 		88A8081627FE2C1800BBFCF3 /* FavoriteEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		88A8081827FE2C2A00BBFCF3 /* FavoriteEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A3700A57FD3958703DFA11FB /* Pods_Nantingol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nantingol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC9F61F03994F70A16B49D44 /* Pods-Nantingol.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nantingol.debug.xcconfig"; path = "Target Support Files/Pods-Nantingol/Pods-Nantingol.debug.xcconfig"; sourceTree = "<group>"; };
 		BE03BE5227F68A0800D21ADC /* Favorites.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Favorites.xcdatamodel; sourceTree = "<group>"; };
 		BE819B1228078AA300CA3E7C /* Usefull.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Usefull.txt; sourceTree = "<group>"; };
 		BE819B172807B28000CA3E7C /* SupportedLanguages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedLanguages.swift; sourceTree = "<group>"; };
@@ -57,12 +61,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE819B162807AECA00CA3E7C /* Alamofire in Frameworks */,
+				DA6D18E76CBAA75764AB3B35 /* Pods_Nantingol.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A4C085135751E6A00A77E1C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AC9F61F03994F70A16B49D44 /* Pods-Nantingol.debug.xcconfig */,
+				1CAD91AE7919639934D1A4D8 /* Pods-Nantingol.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		315044CFA9F2626BCA39CF33 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A3700A57FD3958703DFA11FB /* Pods_Nantingol.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8826A59927FBC5010038DDA2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +132,8 @@
 			children = (
 				BEBBB50927EB9BB100EEBEBC /* Nantingol */,
 				BEBBB50827EB9BB100EEBEBC /* Products */,
+				0A4C085135751E6A00A77E1C /* Pods */,
+				315044CFA9F2626BCA39CF33 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -144,9 +169,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BEBBB51B27EB9BB200EEBEBC /* Build configuration list for PBXNativeTarget "Nantingol" */;
 			buildPhases = (
+				697346CD512016654B57645B /* [CP] Check Pods Manifest.lock */,
 				BEBBB50327EB9BB100EEBEBC /* Sources */,
 				BEBBB50427EB9BB100EEBEBC /* Frameworks */,
 				BEBBB50527EB9BB100EEBEBC /* Resources */,
+				7AD13DF6BBA3B71E5FEBD8E1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -185,7 +212,7 @@
 			);
 			mainGroup = BEBBB4FE27EB9BB100EEBEBC;
 			packageReferences = (
-				BE819B142807AECA00CA3E7C /* XCRemoteSwiftPackageReference "Alamofire" */,
+				BE819B142807AECA00CA3E7C /* XCRemoteSwiftPackageReference "Alamofire.git" */,
 			);
 			productRefGroup = BEBBB50827EB9BB100EEBEBC /* Products */;
 			projectDirPath = "";
@@ -210,6 +237,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		697346CD512016654B57645B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Nantingol-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7AD13DF6BBA3B71E5FEBD8E1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Nantingol/Pods-Nantingol-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Nantingol/Pods-Nantingol-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Nantingol/Pods-Nantingol-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BEBBB50327EB9BB100EEBEBC /* Sources */ = {
@@ -372,6 +441,7 @@
 		};
 		BEBBB51C27EB9BB200EEBEBC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC9F61F03994F70A16B49D44 /* Pods-Nantingol.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -400,6 +470,7 @@
 		};
 		BEBBB51D27EB9BB200EEBEBC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CAD91AE7919639934D1A4D8 /* Pods-Nantingol.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -450,7 +521,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		BE819B142807AECA00CA3E7C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		BE819B142807AECA00CA3E7C /* XCRemoteSwiftPackageReference "Alamofire.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -463,7 +534,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		BE819B152807AECA00CA3E7C /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BE819B142807AECA00CA3E7C /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = BE819B142807AECA00CA3E7C /* XCRemoteSwiftPackageReference "Alamofire.git" */;
 			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */

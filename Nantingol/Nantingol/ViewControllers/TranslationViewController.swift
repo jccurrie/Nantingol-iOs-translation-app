@@ -10,10 +10,10 @@ import UIKit
 import ROGoogleTranslate
 
 
-class TranslationViewController: UIViewController, UITextFieldDelegate {
+class TranslationViewController: UIViewController, UITextViewDelegate {
     
-    @IBOutlet weak var originalText: UITextField!
-    @IBOutlet weak var translatedText: UITextField!
+    @IBOutlet weak var originalText: UITextView!
+    @IBOutlet weak var translatedText: UITextView!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var Nantingol: UILabel!
     
@@ -35,17 +35,14 @@ class TranslationViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func favoriteTranslation(_ sender: Any) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        //let newTranslation = NSEntityDescription.insertNewObject(forEntityName: "FavoriteEntity", into: context) as! FavoriteEntity
         let newFavorite = FavoriteEntity(context: context)
         
         newFavorite.originalText = original
-        newFavorite.translatedText = translated
+        newFavorite.translatedText = self.translatedText.text
         
         let alert = UIAlertController(title: "Added to favorites", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
-
-        
         do {
             try context.save()
         }

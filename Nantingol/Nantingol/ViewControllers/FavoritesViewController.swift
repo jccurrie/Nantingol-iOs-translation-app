@@ -13,7 +13,6 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var Nantingol: UILabel!
-    @IBOutlet weak var removeButton: UIButton!
     
     var favorites: [FavoriteEntity] = []
     
@@ -47,17 +46,13 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let fav = favorites[indexPath.row]
+        
         let alert = UIAlertController(title: fav.originalText, message: nil, preferredStyle: .alert)
-        alert.addTextField(configurationHandler: { textField in
-            textField.text = fav.originalText
-        })
-        alert.addAction(UIAlertAction(title: "Save", style: .default, handler: {_ in
-            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-            do {
-                fav.originalText = alert.textFields?[0].text
-                try context.save()
-                tableView.reloadData()
-            } catch {}
+        alert.addAction(UIAlertAction(title: "View", style: .default, handler: {_ in
+            let alert2 = UIAlertController(title: "Favorite", message: "\n" + "Original: " + fav.originalText! + "\n" + "\n" + "Translated: " + fav.translatedText! , preferredStyle: .alert)
+            alert2.setValue(NSAttributedString(string: alert2.message!, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 24,weight: UIFont.Weight.medium),NSAttributedString.Key.foregroundColor :UIColor.black]), forKey: "attributedMessage")
+            alert2.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert2, animated: true, completion: nil)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: {_ in

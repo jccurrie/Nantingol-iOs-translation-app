@@ -13,15 +13,13 @@ import UIKit
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     var pickerData: [String] = ["Afrikaans", "Bulgarian", "Czech", "German", "Spanish"]
+    
     @IBOutlet weak var translateToPicker: UIPickerView!
-    @IBOutlet weak var translateFromPicker: UIPickerView!
     @IBOutlet weak var Nantingol: UILabel!
     @IBOutlet weak var myText: UITextView!
     @IBOutlet weak var translateButton: UIButton!
     
     var language: String = ""
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,22 +27,22 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         //For gesture-shake function
         self.becomeFirstResponder()
         
-        // Connect language array to the "from translation" / "to translation" option pickers
-        self.translateFromPicker.delegate = self
-        self.translateFromPicker.dataSource = self
+        // Connect language array to the "to translation" option picker
         self.translateToPicker.delegate = self
         self.translateToPicker.dataSource = self
 
-        // Language array data for the from translation / to translation option pickers
+        // Language array data for the translation option pickers
         // Gradient layers/cosmetics for the view and textfields backgrounds
         createViewGradientLayer()
+        
+        
     }
     
     
     //On motion end gesture clears input text field to default message.
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?){
         if motion == .motionShake {
-            myText.text = "Insert text for translation, shake your device to clear this text:"
+            myText.text = ""
         }
     }
     
@@ -87,8 +85,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         myText.layer.cornerRadius = 20
         translateToPicker.layer.masksToBounds = true
         translateToPicker.layer.cornerRadius = 20
-        translateFromPicker.layer.masksToBounds = true
-        translateFromPicker.layer.cornerRadius = 20
         
         // creates a sublayer underneath everything on the main view for background gradient
         let gradientLayer = CAGradientLayer()

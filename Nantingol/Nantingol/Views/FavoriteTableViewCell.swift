@@ -10,4 +10,6 @@ import UIKit
 
 class FavoriteTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var original: UILabel!
+    @IBOutlet weak var translated: UILabel!
 }

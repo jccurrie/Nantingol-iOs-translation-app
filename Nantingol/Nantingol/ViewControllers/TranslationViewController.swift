@@ -9,6 +9,7 @@ import CoreData
 import UIKit
 import ROGoogleTranslate
 
+
 class TranslationViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var originalText: UITextField!
@@ -29,23 +30,32 @@ class TranslationViewController: UIViewController, UITextFieldDelegate {
         // Gradient layers/cosmetics for the view and textfield backgrounds
         createViewGradientLayer()
         originalText.text = original
-        translateThisBisch(original: original)
+        translateText(original: original)
     }
     
-    //TODO: save original and translation to the db from here
     @IBAction func favoriteTranslation(_ sender: Any) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let newTranslation = NSEntityDescription.insertNewObject(forEntityName: "FavoriteEntity", into: context) as! FavoriteEntity
+        //let newTranslation = NSEntityDescription.insertNewObject(forEntityName: "FavoriteEntity", into: context) as! FavoriteEntity
+        let newFavorite = FavoriteEntity(context: context)
         
-        newTranslation.originalText = "originalText.text"
-        newTranslation.translatedText = "Blank text for now!"
+        newFavorite.originalText = original
+        newFavorite.translatedText = translated
+        
+        let alert = UIAlertController(title: "Added to favorites", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
 
+        
+        do {
+            try context.save()
+        }
+        catch {
+            // Handle Error
+        }
     }
     
-    func translateThisBisch(original: String?){
-        var word: String?
-        var translation = translatedText
-        
+    func translateText(original: String?){
+
         var languageCode: String = "en"
         switch (self.languageChoice) {
             case "Afrikaans":
@@ -70,7 +80,6 @@ class TranslationViewController: UIViewController, UITextFieldDelegate {
             DispatchQueue.main.async {
                 self.translatedText.text = "\(result)"
             }
-        
         }
     }
     
@@ -87,12 +96,9 @@ class TranslationViewController: UIViewController, UITextFieldDelegate {
         view.layer.insertSublayer(gradientLayer, below: Nantingol.layer)
     }
     
-    //TODO: Make api call
     //Takes in the original text as String?, sends it through the API and returns the translation.
     //Set translated = the API translation returned String
     func translationCall(original: String?) {
         translatedText.text = original
-        print(original)
     }
-    
 }

@@ -33,6 +33,7 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
         translateText(original: original)
     }
     
+    // Shows alert on translation favorite
     @IBAction func favoriteTranslation(_ sender: Any) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let newFavorite = FavoriteEntity(context: context)
@@ -47,7 +48,6 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
             try context.save()
         }
         catch {
-            // Handle Error
         }
     }
     

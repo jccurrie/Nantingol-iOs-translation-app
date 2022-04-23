@@ -4,7 +4,6 @@
 //
 //  Created by Julian Currie on 4/4/22.
 //
-
 import Foundation
 import UIKit
 import CoreData
@@ -46,15 +45,20 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let fav = favorites[indexPath.row]
-        
         let alert = UIAlertController(title: fav.originalText, message: nil, preferredStyle: .alert)
+        
+        // View alert
         alert.addAction(UIAlertAction(title: "View", style: .default, handler: {_ in
             let alert2 = UIAlertController(title: "Favorite", message: "\n" + "Original: " + fav.originalText! + "\n" + "\n" + "Translated: " + fav.translatedText! , preferredStyle: .alert)
-            alert2.setValue(NSAttributedString(string: alert2.message!, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 24,weight: UIFont.Weight.medium),NSAttributedString.Key.foregroundColor :UIColor.black]), forKey: "attributedMessage")
-            alert2.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert2, animated: true, completion: nil)
+                alert2.setValue(NSAttributedString(string: alert2.message!, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 24,weight: UIFont.Weight.medium),NSAttributedString.Key.foregroundColor :UIColor.black]), forKey: "attributedMessage")
+                alert2.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert2, animated: true, completion: nil)
         }))
+        
+        // Cancel alert
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        // Delete alert
         alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: {_ in
             let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
             do {
@@ -73,11 +77,8 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         do {
             try context.execute(deleteRequest)
-        } catch let error as NSError {
-            print(error)
+        } catch {
         }
-        UserDefaults.standard.set(false, forKey: "isDownloaded")
-        print("Data cleared")
     }
     
     func loadData() {
@@ -87,17 +88,14 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
             let favs = try context.fetch(fetchRequest) as! [FavoriteEntity]
             updateData(favs: favs)
         } catch {
-            print(error)
         }
     }
         
-    
     func updateData(favs: [FavoriteEntity]) {
         self.favorites = favs
         self.tableView.reloadData()
     }
 
-    
     func createViewGradientLayer()
     {
         tableView.layer.masksToBounds = true

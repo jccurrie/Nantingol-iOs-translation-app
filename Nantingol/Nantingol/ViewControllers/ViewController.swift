@@ -34,8 +34,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         // Language array data for the translation option pickers
         // Gradient layers/cosmetics for the view and textfields backgrounds
         createViewGradientLayer()
-        
-        
     }
     
     
